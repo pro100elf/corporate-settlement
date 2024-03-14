@@ -7,16 +7,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import ru.pogornev.course.taskspring2.model.CorporateSettlementAccount;
+import ru.pogornev.course.taskspring2.model.TppProductRegister;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CorporateSettlementAccountControllerTest {
+public class TppproductregisterRepoControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
     @Test
     public void testCreateCorporateSettlementAccount() {
-        CorporateSettlementAccount account = new CorporateSettlementAccount();
+        TppProductRegister account = new TppProductRegister();
         ResponseEntity<Void> response = restTemplate.postForEntity("/corporate-settlement-account/create", account, Void.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

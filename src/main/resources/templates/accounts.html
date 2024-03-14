@@ -1,0 +1,37 @@
+<html>
+<body>
+<div th:switch="${accounts}">
+    <h2 th:case="null">Счета отсутствуют</h2>
+    <div th:case="*">
+        <h2>Счета</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>account_pool_id</th>
+                <th>account_number</th>
+                <th>branch_code</th>
+                <th>currency_code</th>
+                <th>mdm_code</th>
+                <th>priority_code</th>
+                <th>registry_type_code</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.getId()}"></td>
+                <td th:text="${account.getAccount_pool_id()}"></td>
+                <td th:text="${account.getAccount_number()}"></td>
+                <td th:text="${account.getBranch_code()}"></td>
+                <td th:text="${account.getCurrency_code()}"></td>
+                <td th:text="${account.getMdm_code()}"></td>
+                <td th:text="${account.getPriority_code()}"></td>
+                <td th:text="${account.getRegistry_type_code()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
