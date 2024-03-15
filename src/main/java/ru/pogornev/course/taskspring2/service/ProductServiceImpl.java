@@ -23,15 +23,15 @@ public class ProductServiceImpl implements ProductService{
     public TpResponse productInsert(TpRequest request) {
         try {
             var newTppProduct = new TppProduct();
-            newTppProduct.setProduct_code_id(request.getProductCode());
+            newTppProduct.setProductCodeId(request.getProductCode());
             newTppProduct.setType(request.getProductType());
             newTppProduct.setNumber(request.getContractNumber());
             newTppProduct.setPriority(request.getPriority());
-            newTppProduct.setDate_of_conclusion(request.getContractDate());
-            newTppProduct.setPenalty_rate(request.getInterestRatePenalty());
-            newTppProduct.setThreshold_amount(request.getThresholdAmount());
-            newTppProduct.setInterest_rate_type(request.getRateType());
-            newTppProduct.setTax_rate(request.getTaxPercentageRate());
+            newTppProduct.setDateOfConclusion(request.getContractDate());
+            newTppProduct.setPenaltyRate(request.getInterestRatePenalty());
+            newTppProduct.setThresholdAmount(request.getThresholdAmount());
+            newTppProduct.setInterestRateType(request.getRateType());
+            newTppProduct.setTaxRate(request.getTaxPercentageRate());
             productRepo.save(newTppProduct);
 
             List<Object[]> regTypeList = productRepo.getRegistersByProductCode(request.getProductCodeName());
@@ -61,10 +61,10 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public TpResponse agreementInsert(TpRequest request) {
         var newAgreement = new Agreement();
-        newAgreement.setProduct_id(request.getInstanceId());
-        newAgreement.setArrangement_type(request.getProductType());
+        newAgreement.setProductId(request.getInstanceId());
+        newAgreement.setArrangementType(request.getProductType());
         newAgreement.setNumber(request.getContractNumber());
-        newAgreement.setOpening_date(request.getContractDate());
+        newAgreement.setOpeningDate(request.getContractDate());
         agreementRepo.save(newAgreement);
         var tpResponse = new TpResponse();
         tpResponse.setInstanceId(request.getInstanceId());

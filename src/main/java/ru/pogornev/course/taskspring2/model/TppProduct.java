@@ -12,13 +12,13 @@ public class TppProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Long product_code_id;
+    private Long productCodeId;
     private String type;
     private String number;
     private Integer priority;
-    private Timestamp date_of_conclusion;
-    private Float penalty_rate;
-    private BigDecimal threshold_amount;
-    private String interest_rate_type;
-    private Float tax_rate;
+    private Timestamp dateOfConclusion;
+    private Float penaltyRate;
+    private BigDecimal thresholdAmount;
+    private String interestRateType;
+    private Float taxRate;
 }

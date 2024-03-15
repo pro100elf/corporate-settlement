@@ -9,12 +9,12 @@ import lombok.Getter;
 public class Account {
     @Id
     private Long id;
-    private Long account_pool_id;
-    private String account_number;
+    private Long accountPoolId;
+    private String accountNumber;
     // from pool
-    private String branch_code;
-    private String currency_code;
-    private String mdm_code;
-    private String priority_code;
-    private String registry_type_code;
+    private String branchCode;
+    private String currencyCode;
+    private String mdmCode;
+    private String priorityCode;
+    private String registryTypeCode;
 }

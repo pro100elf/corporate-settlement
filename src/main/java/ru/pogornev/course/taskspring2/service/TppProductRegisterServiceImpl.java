@@ -24,12 +24,12 @@ public class TppProductRegisterServiceImpl implements TppProductRegisterService 
                     , request.getPriorityCode(), request.getRegistryTypeCode());
 
             var newTppProductRegister = new TppProductRegister();
-            newTppProductRegister.setProduct_id(request.getInstanceId());
+            newTppProductRegister.setProductId(request.getInstanceId());
             newTppProductRegister.setType(request.getRegistryTypeCode());
             newTppProductRegister.setAccount((long)accAttrList.get(0)[0]);
-            newTppProductRegister.setCurrency_code(request.getCurrencyCode());
+            newTppProductRegister.setCurrencyCode(request.getCurrencyCode());
             newTppProductRegister.setState("OPEN");
-            newTppProductRegister.setAccount_number((String) accAttrList.get(0)[1]);
+            newTppProductRegister.setAccountNumber((String) accAttrList.get(0)[1]);
             tppProductRegisterRepo.save(newTppProductRegister);
             return newTppProductRegister.getId();
         }

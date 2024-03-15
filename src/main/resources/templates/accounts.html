@@ -20,13 +20,13 @@
             <tbody>
             <tr th:each="account : ${accounts}">
                 <td th:text="${account.getId()}"></td>
-                <td th:text="${account.getAccount_pool_id()}"></td>
-                <td th:text="${account.getAccount_number()}"></td>
-                <td th:text="${account.getBranch_code()}"></td>
-                <td th:text="${account.getCurrency_code()}"></td>
-                <td th:text="${account.getMdm_code()}"></td>
-                <td th:text="${account.getPriority_code()}"></td>
-                <td th:text="${account.getRegistry_type_code()}"></td>
+                <td th:text="${account.getAccountPoolId()}"></td>
+                <td th:text="${account.getAccountNumber()}"></td>
+                <td th:text="${account.getBranchCode()}"></td>
+                <td th:text="${account.getCurrencyCode()}"></td>
+                <td th:text="${account.getMdmCode()}"></td>
+                <td th:text="${account.getPriorityCode()}"></td>
+                <td th:text="${account.getRegistryTypeCode()}"></td>
             </tr>
             </tbody>
         </table>

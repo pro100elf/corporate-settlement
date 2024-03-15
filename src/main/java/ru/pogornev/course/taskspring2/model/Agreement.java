@@ -11,8 +11,8 @@ public class Agreement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer product_id;
-    private String arrangement_type;
+    private Integer productId;
+    private String arrangementType;
     private String number;
-    private Timestamp opening_date;
+    private Timestamp openingDate;
 }

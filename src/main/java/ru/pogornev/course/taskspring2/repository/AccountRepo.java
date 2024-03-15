@@ -29,5 +29,5 @@ public interface AccountRepo extends JpaRepository<Account, Long> {//vs CrudRepo
                 LIMIT 1
             """
             , nativeQuery = true)
-    List<Object[]> getAccountByRequest(String branch_code, String currency_code, String mdm_code, String priority_code, String registry_type_code);
+    List<Object[]> getAccountByRequest(String branchCode, String currencyCode, String mdmCode, String priorityCode, String registryTypeCode);
 }
