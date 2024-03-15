@@ -15,11 +15,11 @@ public class TppProductController {
 
     @PostMapping("/corporate-settlement-instance/create")
     public TpResponse createCorporateSettlementInstance(@RequestBody TpRequest tpRequest) {
-        productService.validate(tpRequest);
-//        if ( tpRequest.getInstanceId() != null && tpRequest.getInstanceId() > 0 )  {
-//            // уходим на добавление доп.соглашения
-//            // supplementaryAgreementId в Response
-//        }
-        return productService.productInsert(tpRequest);
+        if ( tpRequest.getInstanceId() != null && tpRequest.getInstanceId() > 0 )
+            return productService.agreementInsert(tpRequest);
+        else {
+            productService.validate(tpRequest);
+            return productService.productInsert(tpRequest);
+        }
     }
 }

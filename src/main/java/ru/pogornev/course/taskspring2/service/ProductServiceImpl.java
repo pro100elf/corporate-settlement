@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import ru.pogornev.course.taskspring2.model.*;
+import ru.pogornev.course.taskspring2.repository.AgreementRepo;
 import ru.pogornev.course.taskspring2.repository.ProductRepo;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,19 +14,16 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService{
     @Autowired
     private ProductRepo productRepo;
-
+    @Autowired
+    private AgreementRepo agreementRepo;
     @Autowired
     private TppProductRegisterService tppProductRegisterService;
 
     @Override
     public TpResponse productInsert(TpRequest request) {
         try {
-//            List<Object[]> accAttrList = accountRepo.getAccountByRequest(request.getBranchCode(), request.getCurrencyCode(), request.getMdmCode()
-//                    , request.getPriorityCode(), request.getRegistryTypeCode());
-
             var newTppProduct = new TppProduct();
             newTppProduct.setProduct_code_id(request.getProductCode());
-            newTppProduct.setType(request.getProductType());
             newTppProduct.setType(request.getProductType());
             newTppProduct.setNumber(request.getContractNumber());
             newTppProduct.setPriority(request.getPriority());
@@ -58,6 +56,20 @@ public class ProductServiceImpl implements ProductService{
         catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, exception.toString());
         }
+    }
+
+    @Override
+    public TpResponse agreementInsert(TpRequest request) {
+        var newAgreement = new Agreement();
+        newAgreement.setProduct_id(request.getInstanceId());
+        newAgreement.setArrangement_type(request.getProductType());
+        newAgreement.setNumber(request.getContractNumber());
+        newAgreement.setOpening_date(request.getContractDate());
+        agreementRepo.save(newAgreement);
+        var tpResponse = new TpResponse();
+        tpResponse.setInstanceId(request.getInstanceId());
+        tpResponse.setSupplementaryAgreementId(newAgreement.getId());
+        return tpResponse;
     }
 
     @Override

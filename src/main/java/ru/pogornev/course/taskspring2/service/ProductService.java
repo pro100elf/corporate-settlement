@@ -5,5 +5,6 @@ import ru.pogornev.course.taskspring2.model.TpResponse;
 
 public interface ProductService {
     TpResponse productInsert(TpRequest tpRequest);
+    TpResponse agreementInsert(TpRequest tpRequest);
     void validate(TpRequest request);
 }

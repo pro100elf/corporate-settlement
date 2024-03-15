@@ -1,10 +1,12 @@
 package ru.pogornev.course.taskspring2.model;
 
 import lombok.Getter;
+import lombok.Setter;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Getter
+@Setter
 public class TpRequest {
     private Integer instanceId; // id
     private Long productCode; // -> product_code_id
